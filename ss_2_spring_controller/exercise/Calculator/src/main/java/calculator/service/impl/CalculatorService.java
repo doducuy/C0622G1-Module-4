@@ -8,20 +8,23 @@ public class CalculatorService implements ICalculatorService {
 
 
     @Override
-    public double calculate(double operatorOne, double operatorTwo, String calculation) {
-        double result =0;
+    public String calculate(double operatorOne, double operatorTwo, String calculation) {
+        String result="Số Chia Không Được Bằng 0";
         switch (calculation){
             case "Addition(+)":
-                result = operatorOne+operatorTwo;
+                result = operatorOne+operatorTwo+"";
                 break;
             case "Subtraction(-)":
-                result = operatorOne-operatorTwo;
+                result = operatorOne-operatorTwo+"";
                 break;
             case "Multiplication(*)":
-                result = operatorOne*operatorTwo;
+                result = operatorOne*operatorTwo+"";
                 break;
             case "Division(/)":
-                result = operatorOne/operatorTwo;
+                if(operatorTwo==0){
+                    return result;
+                }
+                result = operatorOne/operatorTwo+"";
                 break;
         }
         return result;
