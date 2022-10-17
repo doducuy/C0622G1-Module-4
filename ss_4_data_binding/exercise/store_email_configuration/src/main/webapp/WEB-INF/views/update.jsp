@@ -11,12 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-<h2 style="color: red">Update Success!!!</h2>
+<h2 style="color: red"> ${mess}</h2>
 <pre>Language:      ${configuration.getLanguage()}</pre>
 <pre>Page Size:     ${configuration.getPageSize()} </pre>
 <pre>Spam filter:   ${configuration.getSpamFilter()}</pre>
 <pre>Signature:     ${configuration.getSignature()}</pre>
-<a href="/home">Back</a>
+<a href="/">Back</a>
 <pre></pre>
 </body>
 </html>

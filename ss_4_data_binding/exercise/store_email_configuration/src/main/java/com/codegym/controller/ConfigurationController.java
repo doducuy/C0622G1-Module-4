@@ -10,17 +10,17 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping()
+@RequestMapping
 public class ConfigurationController {
-    @GetMapping("/home")
+    @GetMapping
     public ModelAndView showForm(){
         ModelAndView modelAndView = new ModelAndView("formStore","configuration",new Configuration());
         return modelAndView;
     }
     @PostMapping("/update")
-    public ModelAndView update(@ModelAttribute Configuration configuration, RedirectAttributes redirectAttributes){
+    public ModelAndView update(@ModelAttribute Configuration configuration ){
         ModelAndView modelAndView = new ModelAndView("update","configuration",configuration);
-        redirectAttributes.addFlashAttribute("mess","Update Success!");
+        modelAndView.addObject("mess","Update Success!");
         return modelAndView;
     }
 }
