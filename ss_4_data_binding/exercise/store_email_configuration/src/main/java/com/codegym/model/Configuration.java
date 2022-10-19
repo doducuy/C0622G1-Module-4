@@ -1,5 +1,7 @@
 package com.codegym.model;
 
+import com.oracle.webservices.internal.api.databinding.DatabindingMode;
+
 public class Configuration {
     private String language;
     private Integer pageSize;
