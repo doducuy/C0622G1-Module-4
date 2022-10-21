@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="/figure/layout :: head">
+</head>
+<body>
+<strong style="color: green" th:text="${mess}"></strong>
+<p th:if="${figureList.isEmpty()}" style="color:red">List Empty</p>
+<h3>Customers</h3>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="d-flex" th:action="@{/figure/search}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchName">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<p>
+    <a th:href="@{/home/create}">
+        Add new figure
+    </a>
+</p>
+<span style="color: red" ></span>
+<table id = "figureList">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Appearance</th>
+        <th>Sect</th>
+        <th>Edit</th>
+        <th>Delete</th>
+<!--        <th>View</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${figureList}">
+        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getGender()}"></td>
+        <td th:text="${row.getAppearance()}"></td>
+        <td th:text="${row.getSect()}"></td>
+        <td><a th:href="@{/home/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/home/{id}/delete(id=${row.getId()})}">delete</a></td>
+<!--        <td><a th:href="@{/figure/{id}/view(id=${row.getId()})}">view</a></td>-->
+    </tr>
+    </tbody>
+</table>
+<p>
+    <a th:href="@{/home}">
+        Back Home!!!
+    </a>
+</p>
+<footer th:replace="/figure/layout :: footer"></footer>
+</body>
+</html>
