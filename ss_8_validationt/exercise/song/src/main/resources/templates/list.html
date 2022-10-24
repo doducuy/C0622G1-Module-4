@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Song List</h3>
+<a href="/create">Add new song</a>
+<table border="1">
+    <thead>
+    <tr>
+        <td>Tên</td>
+        <td>Nghệ Sỹ</td>
+        <td>Thể Loại</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="song,songStatus: ${songList}">
+        <td th:text="${song.name}"></td>
+        <td th:text="${song.artist}"></td>
+        <td th:text="${song.genre}"></td>
+        <td><a th:href="@{/{id}/delete(id=${song.getId()})}">delete</a></td>
+        <td><a th:href="@{/{id}/edit(id=${song.getId()})}">edit</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:if="${songList.hasPrevious()}" th:href="@{'/list'(page=${songList.number - 1})}">Previous</a>
+    <span th:text = "${songList.number + 1}"></span>/<span th:text = "${songList.totalPages}"></span>
+    <a th:if="${songList.hasNext()}" th:href="@{'/list'(page=${songList.number + 1})}">Next</a>
+</div>
+</body>
+</html>
