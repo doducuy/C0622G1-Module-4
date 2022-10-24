@@ -7,6 +7,7 @@
     Back to figure list
 </a>
 <form th:action="@{/home/saveEdit}" th:object="${figure}" method="post" novalidate="novalidate">
+    <input type="hidden" th:field="*{id}">
     <div>
         <span>Name</span>
         <input type="text" th:field="*{name}">

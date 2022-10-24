@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Figure;
 import com.example.demo.repository.IFigureRepository;
+import com.example.demo.service.IAccountService;
 import com.example.demo.service.IFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class FigureController {
     @Autowired
     IFigureService iFigureService;
+    @Autowired
+    IAccountService iAccountService;
 
     @GetMapping
     public String home() {
@@ -23,6 +26,7 @@ public class FigureController {
     @GetMapping("/list")
     public String showList(Model model) {
         model.addAttribute("figureList", iFigureService.findAll());
+        model.addAttribute("accounts",iAccountService.findAll());
         return "figure/list";
     }
 
@@ -54,7 +58,7 @@ public class FigureController {
     }
     @PostMapping("/saveEdit")
     public String saveEdit(RedirectAttributes redirectAttributes , @ModelAttribute (value = "figure") Figure figure){
-        iFigureService.update(figure);
+        iFigureService.save(figure);
         redirectAttributes.addFlashAttribute("mess", "Update Oke!");
         return "redirect:/home/list";
     }

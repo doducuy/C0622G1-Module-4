@@ -29,6 +29,7 @@
         <th>Gender</th>
         <th>Appearance</th>
         <th>Sect</th>
+        <th>Account Name</th>
         <th>Edit</th>
         <th>Delete</th>
 <!--        <th>View</th>-->
@@ -40,9 +41,9 @@
         <td th:text="${row.getGender()}"></td>
         <td th:text="${row.getAppearance()}"></td>
         <td th:text="${row.getSect()}"></td>
+        <td th:text="${row.getAccount().getAccountName()}"></td>
         <td><a th:href="@{/home/{id}/edit(id=${row.getId()})}">edit</a></td>
         <td><a th:href="@{/home/{id}/delete(id=${row.getId()})}">delete</a></td>
-<!--        <td><a th:href="@{/figure/{id}/view(id=${row.getId()})}">view</a></td>-->
     </tr>
     </tbody>
 </table>

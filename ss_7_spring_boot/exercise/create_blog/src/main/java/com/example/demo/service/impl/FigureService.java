@@ -28,10 +28,7 @@ public class FigureService implements IFigureService {
         iFigureRepository.deleteById(figure.getId());
     }
 
-    @Override
-    public void update(Figure figure) {
-        iFigureRepository.save(figure);
-    }
+
 
     @Override
     public Figure findById(int id) {

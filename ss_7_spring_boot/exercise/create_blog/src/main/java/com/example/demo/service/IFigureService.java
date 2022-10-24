@@ -9,6 +9,5 @@ public interface IFigureService {
     List<Figure> findAll();
     void save(Figure figure);
     void remove(Figure figure);
-    void update(Figure figure);
     Figure findById(int id);
 }

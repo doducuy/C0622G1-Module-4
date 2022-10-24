@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Figure {
@@ -14,7 +11,9 @@ public class Figure {
     private String gender;
     private String appearance;
     private String sect;
-
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="account_id", referencedColumnName = "id")
+    private Account account;
     public Figure() {
     }
 
@@ -64,5 +63,13 @@ public class Figure {
 
     public void setSect(String sect) {
         this.sect = sect;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

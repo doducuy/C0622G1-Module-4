@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+</head>
+<body>
+<p th:if="${accountList.isEmpty()}" style="color:red">List Empty</p>
+<h3>Account</h3>
+<strong style="color: green" th:text="${mess}"></strong>
+
+<p>
+    <a th:href="@{/home/createAccount}">
+        Add new account
+    </a>
+</p>
+<span style="color: red" ></span>
+<table>
+    <thead>
+    <tr>
+        <th>Account Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${accountList}">
+        <td th:text="${row.getAccountName()}"></td>
+        <td><a th:href="@{/home/{id}/editAccount(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/home/{id}/deleteAccount(id=${row.getId()})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<p>
+    <a th:href="@{/home}">
+        Back Home!!!
+    </a>
+</p>
+</body>
+</html>
