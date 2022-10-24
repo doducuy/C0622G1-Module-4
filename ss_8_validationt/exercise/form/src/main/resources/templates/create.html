@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Add User</h3>
+<a href="/list">Back To User List</a>
+<form th:action="@{/saveUser}" th:object="${user}" method="post" >
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Tên: </label>
+        <input type="text" th:field="*{name}">
+        <pre style="color: red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></pre>
+    </div>
+    <div>
+        <label>Email: </label>
+        <input type="text" th:field="*{email}">
+        <pre style="color: red" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></pre>
+    </div>
+    <div>
+        <label>Tuổi : </label>
+        <input type="text" th:field="*{age}">
+        <pre style="color: red" th:errors="*{age}" th:if="${#fields.hasErrors('age')}"></pre>
+    </div>
+    <div>
+        <label>Số Điện Thoại: </label>
+        <input type="text" th:field="*{phoneNumber}">
+        <pre style="color: red" th:errors="*{phoneNumber}" th:if="${#fields.hasErrors('phoneNumber')}"></pre>
+    </div>
+    <input type="submit" value="Save!">
+</form>
+</body>
+</html>
