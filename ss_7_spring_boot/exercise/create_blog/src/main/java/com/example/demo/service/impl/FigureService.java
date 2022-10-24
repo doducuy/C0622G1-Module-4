@@ -4,6 +4,8 @@ import com.example.demo.model.Figure;
 import com.example.demo.repository.IFigureRepository;
 import com.example.demo.service.IFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +19,7 @@ public class FigureService implements IFigureService {
     public List<Figure> findAll() {
         return iFigureRepository.findAll();
     }
+
 
     @Override
     public void save(Figure figure) {
@@ -34,5 +37,10 @@ public class FigureService implements IFigureService {
     public Figure findById(int id) {
         Figure figure = iFigureRepository.findById(id).orElse(new Figure());
         return figure;
+    }
+
+    @Override
+    public Page<Figure> findAll(Pageable pageable) {
+        return iFigureRepository.findAll(pageable);
     }
 }

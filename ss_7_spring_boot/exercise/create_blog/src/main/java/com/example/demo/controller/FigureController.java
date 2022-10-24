@@ -5,10 +5,13 @@ import com.example.demo.repository.IFigureRepository;
 import com.example.demo.service.IAccountService;
 import com.example.demo.service.IFigureService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 @Controller
 @RequestMapping("/home")
@@ -24,8 +27,8 @@ public class FigureController {
     }
 
     @GetMapping("/list")
-    public String showList(Model model) {
-        model.addAttribute("figureList", iFigureService.findAll());
+    public String showList(@PageableDefault(value = 1) Pageable pageable, Model model) {
+        model.addAttribute("figureList", iFigureService.findAll(pageable));
         model.addAttribute("accounts",iAccountService.findAll());
         return "figure/list";
     }
