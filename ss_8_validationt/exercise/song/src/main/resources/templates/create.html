@@ -7,7 +7,7 @@
 <body>
 <h3>Add User</h3>
 <a href="/list">Back To Song List</a>
-<form th:action="@{/saveSong}" th:object="${song}" method="post" >
+<form th:action="@{/saveSong}" th:object="${songDto}" method="post" >
     <input type="hidden" th:field="*{id}">
     <div>
         <label>Tên: </label>
