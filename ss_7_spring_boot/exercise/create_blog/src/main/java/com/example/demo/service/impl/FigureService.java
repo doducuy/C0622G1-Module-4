@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FigureService implements IFigureService {
@@ -25,5 +26,16 @@ public class FigureService implements IFigureService {
     @Override
     public void remove(Figure figure) {
         iFigureRepository.deleteById(figure.getId());
+    }
+
+    @Override
+    public void update(Figure figure) {
+        iFigureRepository.save(figure);
+    }
+
+    @Override
+    public Figure findById(int id) {
+        Figure figure = iFigureRepository.findById(id).orElse(new Figure());
+        return figure;
     }
 }

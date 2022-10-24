@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/figure/layout :: head">
 <body>
-$END$
+<h3>Edit Customer</h3>
+<a th:href="@{/home/list}">
+    Back to figure list
+</a>
+<form th:action="@{/home/saveEdit}" th:object="${figure}" method="post" novalidate="novalidate">
+    <div>
+        <span>Name</span>
+        <input type="text" th:field="*{name}">
+    </div>
+    <div>
+        <span>Gender</span>
+        <input type="text" th:field="*{gender}">
+    </div>
+    <div>
+        <span>Appearance</span>
+        <input type="text" th:field="*{appearance}">
+    </div>
+    <div>
+        <span>Sect</span>
+        <input type="text" th:field="*{sect}">
+    </div>
+    <div>
+        <input type="submit" value="Update!!!">
+    </div>
+</form>
+<footer th:replace="/figure/layout :: footer"></footer>
 </body>
 </html>
