@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>List Book</h3>
+<p style="color: red" th:text="${mess}"></p>
+<table border="1">
+    <tr>
+        <td>Tên</td>
+        <td>Thể Loại</td>
+        <td>Số Lượng</td>
+        <td>Tác Giả</td>
+        <td>Oder</td>
+    </tr>
+    <tr th:each="book,bookTus : ${bookList}">
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.category}"></td>
+        <td th:text="${book.quantity}"></td>
+        <td th:text="${book.author}"></td>
+        <td><a th:href="@{/{id}/bookDetail(id=${book.getId()})}">Oder</a></td>
+
+    </tr>
+</table>
+<a href="/listOrder">Show List Order Book!</a>
+</body>
+</html>

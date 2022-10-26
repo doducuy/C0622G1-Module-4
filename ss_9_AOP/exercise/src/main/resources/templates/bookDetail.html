@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Thông tin sách</h3>
+<form th:action="@{/saveOder}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <table>
+        <tr>
+            <td><label>Tên</label></td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td><label>Thể Loại</label></td>
+            <td><input type="text" th:field="*{category}"></td>
+        </tr>
+        <tr>
+            <td><label>Số Lượng</label></td>
+            <td><input type="text" th:field="*{quantity}"></td>
+        </tr>
+        <tr>
+            <td><label>Tác Giả</label></td>
+            <td><input type="text" th:field="*{author}"></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Oder!">
+</form>
+</body>
+</html>
