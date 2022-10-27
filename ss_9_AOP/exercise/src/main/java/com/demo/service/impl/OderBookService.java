@@ -21,4 +21,21 @@ public class OderBookService implements IOderBookService {
     public void saveOder(OderBook oderBook) {
         iOderBookRepository.save(oderBook);
     }
+
+    @Override
+    public OderBook findByBookRentalCode(long bookRentalCode) {
+        List<OderBook> oderBookList = iOderBookRepository.findAll();
+        for (OderBook item: oderBookList
+             ) {
+            if(item.getBookRentalCode()==bookRentalCode){
+                return item;
+            }
+        }
+        return null;
+    }
+
+//    @Override
+//    public void deleteByCode(long code) {
+//        iOderBookRepository.deleteByCode(code);
+//    }
 }
