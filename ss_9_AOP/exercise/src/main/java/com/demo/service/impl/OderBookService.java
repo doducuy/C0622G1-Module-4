@@ -12,6 +12,7 @@ import java.util.List;
 public class OderBookService implements IOderBookService {
     @Autowired
     IOderBookRepository iOderBookRepository;
+
     @Override
     public List<OderBook> findAll() {
         return iOderBookRepository.findAll();
@@ -25,9 +26,9 @@ public class OderBookService implements IOderBookService {
     @Override
     public OderBook findByBookRentalCode(long bookRentalCode) {
         List<OderBook> oderBookList = iOderBookRepository.findAll();
-        for (OderBook item: oderBookList
-             ) {
-            if(item.getBookRentalCode()==bookRentalCode){
+        for (OderBook item : oderBookList
+        ) {
+            if (item.getBookRentalCode() == bookRentalCode) {
                 return item;
             }
         }

@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IOderBookRepository extends JpaRepository<OderBook,Integer> {
+public interface IOderBookRepository extends JpaRepository<OderBook, Integer> {
 //    @Query(value="delete from oder_book where oder_book.book_rental_code =:code",nativeQuery= true)
 //
 //    OderBook deleteByCode(@Param("code") long code);

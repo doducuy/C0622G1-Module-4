@@ -9,7 +9,7 @@ public class OderBook {
     private int id;
     private long bookRentalCode;
     @ManyToOne
-    @JoinColumn(name = "book_id",referencedColumnName = "id")
+    @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
 
     public OderBook() {
