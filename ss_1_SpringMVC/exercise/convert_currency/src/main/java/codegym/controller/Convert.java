@@ -20,7 +20,7 @@ public class Convert {
         return "convert";
     }
     @PostMapping("/result")
-    public String Convert(@RequestParam double usd, @RequestParam double rate, Model model){
+    public String Convert(@RequestParam("usd") double usd, @RequestParam double rate, Model model){
         model.addAttribute("result",convertCurrencyService.Convert(usd,rate));
         model.addAttribute("usd",usd);
         model.addAttribute("rate",rate);

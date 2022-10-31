@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     IUserService iUserService;
     @GetMapping("/list")
-    public String showList(@PageableDefault (value = 1)Pageable pageable, Model model){
+    public String showList(@PageableDefault (value = 3)Pageable pageable, Model model){
         model.addAttribute("userList",iUserService.findAll(pageable));
         return "/list";
     }

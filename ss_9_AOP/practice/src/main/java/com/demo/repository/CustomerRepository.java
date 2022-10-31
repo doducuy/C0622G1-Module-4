@@ -1,6 +1,7 @@
-package cg.wbd.grandemonstration.repository;
+package com.demo.repository;
 
-import cg.wbd.grandemonstration.model.Customer;
+
+import com.demo.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;

@@ -1,6 +1,6 @@
-package cg.wbd.grandemonstration.repository;
+package com.demo.repository;
 
-import cg.wbd.grandemonstration.model.Province;
+import com.demo.model.Province;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

@@ -28,5 +28,5 @@
     <pre>Condiments You Choose: ${lettuce} ${tomato} ${mustard} ${sprouts}</pre>
     <input type="submit" value="Save!">
 </form>
-</body>  
+</body>
 </html>

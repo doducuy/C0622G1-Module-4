@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/saveEdit}" th:object="${studentdto}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <div>
+        <label>Tên</label>
+        <input type="text" th:field="*{name}">
+        <p style="color: red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></p>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" th:field="*{email}">
+    </div>
+    <input type="submit" value="Save!">
+</form>
+</body>
+</html>

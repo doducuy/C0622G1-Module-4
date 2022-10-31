@@ -35,7 +35,7 @@ public class FigureService implements IFigureService {
 
     @Override
     public Figure findById(int id) {
-        Figure figure = iFigureRepository.findById(id).orElse(new Figure());
+        Figure figure = iFigureRepository.findById(id).orElse(null);
         return figure;
     }
 

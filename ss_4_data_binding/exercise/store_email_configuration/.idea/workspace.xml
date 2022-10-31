@@ -2,15 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a1767b9-4e7e-436c-9b40-190c8b26c852" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/test/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../SpringMVC/src/main/webapp/WEB-INF/views/convert.jsp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../create_project_springmvc/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../create_project_springmvc/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../spring_gradle_xml/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../spring_gradle_xml/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
@@ -64,13 +55,17 @@
       <change beforePath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/java/ss2_spring_controller/service/impl/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/java/ss2_spring_controller/service/impl/EmailService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_2_spring_controller/practice/check_email/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codegym/model/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/codegym/model/Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/contronller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/contronller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss_3_thymeleaf/practice/management_customer/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/model/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/spring-user-model/src/main/java/com/codegym/model/Login.java" afterDir="false" />
@@ -99,6 +94,7 @@
       <list>
         <option value="Class" />
         <option value="Jsp File" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -223,6 +219,7 @@
       <workItem from="1666012047483" duration="1377000" />
       <workItem from="1666022620822" duration="1389000" />
       <workItem from="1666057155814" duration="1491000" />
+      <workItem from="1666151758431" duration="107000" />
     </task>
     <servers />
   </component>

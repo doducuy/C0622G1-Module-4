@@ -1,6 +1,6 @@
-package cg.wbd.grandemonstration.service;
+package com.demo.service;
 
-import cg.wbd.grandemonstration.model.Customer;
+import com.demo.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,7 +16,7 @@ public interface CustomerService {
 
     Page<Customer> search(String keyword, Pageable pageInfo);
 
-    Optional<Customer> findOne(Long id);
+    Optional<Customer> findOne(Long id) throws Exception;
 
     Customer save(Customer customer);
 

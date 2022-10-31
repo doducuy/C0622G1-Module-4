@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+đăng nhập thành công
+<pre>Name: ${user.getName()}</pre>
+<pre>Account: ${user.getAccount()} </pre>
+<pre>Password: ${user.getPassword()}</pre>
+<pre>Email: ${user.getEmail()}</pre>
+<pre>Age: ${user.getAge()}</pre>
 </body>
 </html>

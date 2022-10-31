@@ -1,7 +1,7 @@
-package ss2.spring.controller.service.impl;
+package ss2_spring_controller.service.impl;
 
 import org.springframework.stereotype.Service;
-import ss2.spring.controller.service.IEmailService;
+import ss2_spring_controller.service.IEmailService;
 @Service
 public class EmailService implements IEmailService {
 

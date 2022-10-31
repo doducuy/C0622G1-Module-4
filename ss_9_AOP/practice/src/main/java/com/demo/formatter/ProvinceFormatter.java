@@ -1,7 +1,9 @@
-package cg.wbd.grandemonstration.formatter;
+package com.demo.formatter;
 
-import cg.wbd.grandemonstration.model.Province;
-import cg.wbd.grandemonstration.service.ProvinceService;
+
+
+import com.demo.model.Province;
+import com.demo.service.ProvinceService;
 import org.springframework.format.Formatter;
 
 import java.text.ParseException;

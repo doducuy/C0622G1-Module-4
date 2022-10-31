@@ -34,7 +34,7 @@ public class OderBookController {
     public String saveOder(@ModelAttribute(value = "book") Book book, RedirectAttributes redirectAttributes) {
         if (book.getQuantity() > 0) {
             OderBook oderBook = new OderBook();
-            long bookRentalCode = (long) (Math.random() * (99999 - 10000) + 10000);
+            Long bookRentalCode = (long) (Math.random() * (99999 - 10000) + 10000);
             oderBook.setBookRentalCode(bookRentalCode);
             oderBook.setBook(book);
             iOderBookService.saveOder(oderBook);
@@ -60,7 +60,7 @@ public class OderBookController {
             Book book = iBookService.findById(oderBookReturn.getBook().getId());
             book.setQuantity(book.getQuantity() + 1);
             iBookService.saveBook(book);
-            oderBookReturn.setBookRentalCode(0);
+            oderBookReturn.setBookRentalCode((long) 0);
             iOderBookService.saveOder(oderBookReturn);
             redirectAttributes.addFlashAttribute("mess", "Trả sách thành công");
             return "redirect:/listBook";

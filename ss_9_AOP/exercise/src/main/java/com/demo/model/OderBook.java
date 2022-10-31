@@ -7,7 +7,7 @@ public class OderBook {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private long bookRentalCode;
+    private Long bookRentalCode;
     @ManyToOne
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
@@ -23,11 +23,11 @@ public class OderBook {
         this.id = id;
     }
 
-    public long getBookRentalCode() {
+    public Long getBookRentalCode() {
         return bookRentalCode;
     }
 
-    public void setBookRentalCode(long bookRentalCode) {
+    public void setBookRentalCode(Long bookRentalCode) {
         this.bookRentalCode = bookRentalCode;
     }
 

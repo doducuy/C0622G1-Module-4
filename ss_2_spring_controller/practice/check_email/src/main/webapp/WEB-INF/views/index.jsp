@@ -8,9 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<h3>Check Email</h3>
+<form action="/check">
+    <pre>
+        Enter Your Email:
+        <input type="text" name="email" placeholder="doducuy@gmail.com" value="${email}">
+    </pre>
+    <pre>
+        Result: ${result}
+    </pre>
+    <input type="submit" value="Check!">
+</form>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package ss2.spring.controller.service;
+package ss2_spring_controller.service;
 
 import org.springframework.stereotype.Service;
 

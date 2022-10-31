@@ -1,6 +1,6 @@
-package cg.wbd.grandemonstration.service;
+package com.demo.service;
 
-import cg.wbd.grandemonstration.model.Province;
+import com.demo.model.Province;
 
 import java.util.List;
 import java.util.Optional;

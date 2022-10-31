@@ -1,4 +1,12 @@
 package uy.repository.impl;
 
-public class ConvertRepository {
+import org.springframework.stereotype.Repository;
+import uy.repository.IConvertCurrencyRepository;
+@Repository
+public class  ConvertCurrencyRepository implements IConvertCurrencyRepository {
+
+    @Override
+    public double convertCurrency(double usd, double rate) {
+        return usd*rate;
+    }
 }

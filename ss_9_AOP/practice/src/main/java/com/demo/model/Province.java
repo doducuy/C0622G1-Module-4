@@ -1,4 +1,4 @@
-package cg.wbd.grandemonstration.model;
+package com.demo.model;
 
 import javax.persistence.*;
 

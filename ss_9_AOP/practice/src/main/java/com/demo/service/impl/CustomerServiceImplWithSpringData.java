@@ -1,8 +1,9 @@
-package cg.wbd.grandemonstration.service.impl;
+package com.demo.service.impl;
 
-import cg.wbd.grandemonstration.model.Customer;
-import cg.wbd.grandemonstration.repository.CustomerRepository;
-import cg.wbd.grandemonstration.service.CustomerService;
+
+import com.demo.model.Customer;
+import com.demo.repository.CustomerRepository;
+import com.demo.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -43,8 +44,12 @@ public class CustomerServiceImplWithSpringData implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> findOne(Long id) {
-        return customerRepository.findById(id);
+    public Optional<Customer> findOne(Long id) throws Exception {
+        Optional<Customer> customerOptional = customerRepository.findById(id);
+        if (!customerOptional.isPresent()) {
+            throw new Exception("customer not found!");
+        }
+        return customerOptional;
     }
 
     @Override

@@ -1,9 +1,10 @@
-package cg.wbd.grandemonstration.controller;
+package com.demo.controller;
 
-import cg.wbd.grandemonstration.model.Customer;
-import cg.wbd.grandemonstration.model.Province;
-import cg.wbd.grandemonstration.service.CustomerService;
-import cg.wbd.grandemonstration.service.ProvinceService;
+
+import com.demo.model.Customer;
+import com.demo.model.Province;
+import com.demo.service.CustomerService;
+import com.demo.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -38,10 +39,14 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ModelAndView showInformation(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("/customers/info");
-        Optional<Customer> customerOptional = customerService.findOne(id);
-        modelAndView.addObject("customer", customerOptional.get());
-        return modelAndView;
+        try {
+            ModelAndView modelAndView = new ModelAndView("/customers/info");
+            Optional<Customer> customerOptional = customerService.findOne(id);
+            modelAndView.addObject("customer", customerOptional.get());
+            return modelAndView;
+        } catch (Exception e) {
+            return new ModelAndView("redirect:/customers");
+        }
     }
 
     @PostMapping

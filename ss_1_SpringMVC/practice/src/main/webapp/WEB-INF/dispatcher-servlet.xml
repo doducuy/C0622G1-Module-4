@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--Khai bao vi tri dat class -la 1 package:  controller, service..,repository-->
-    <context:component-scan base-package="com.uy"/>
+    <context:component-scan base-package="uy"/>
     <mvc:annotation-driven/>
 
     <!--Khai bao vi tri dat view, duoi file cua view-->

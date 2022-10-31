@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head">
+<head th:replace="/product/layout :: head">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
         Add new product
     </a>
 </p>
-<span style="color: red" th:text="${mess}"></span>
+<span style="color: red" ></span>
 <table id = "products">
     <thead>
     <tr>
@@ -43,6 +43,6 @@
     </tr>
     </tbody>
 </table>
-<footer th:replace="/layout :: footer"></footer>
+<footer th:replace="/product/layout :: footer"></footer>
 </body>
 </html>

@@ -1,8 +1,8 @@
-package cg.wbd.grandemonstration.service.impl;
+package com.demo.service.impl;
 
-import cg.wbd.grandemonstration.model.Province;
-import cg.wbd.grandemonstration.repository.ProvinceRepository;
-import cg.wbd.grandemonstration.service.ProvinceService;
+import com.demo.model.Province;
+import com.demo.repository.ProvinceRepository;
+import com.demo.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

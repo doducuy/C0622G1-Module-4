@@ -1,5 +1,9 @@
 package com.example.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -12,6 +16,8 @@ public class Figure {
     private String appearance;
     private String sect;
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @JsonIgnore
     @JoinColumn(name="account_id", referencedColumnName = "id")
     private Account account;
     public Figure() {
