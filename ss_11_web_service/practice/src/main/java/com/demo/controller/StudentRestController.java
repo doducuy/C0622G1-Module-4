@@ -14,37 +14,50 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/student/v1")
 public class StudentRestController {
     @Autowired
     private StudentService studentService;
+
     @GetMapping
-    public ResponseEntity<List<Student>> getListStudent(){
+    public ResponseEntity<List<Student>> getListStudent() {
         List<Student> studentList = studentService.findAll();
-        if(studentList.isEmpty()){
+        if (studentList.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(studentList,HttpStatus.OK);
+        return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
+
     @PostMapping
-    public ResponseEntity<Student> addStudent(@RequestBody StudentDto studentDto){
-        Student student =new Student();
-        BeanUtils.copyProperties(studentDto,student);
+    public ResponseEntity<Student> addStudent(@RequestBody StudentDto studentDto) {
+        Student student = new Student();
+        BeanUtils.copyProperties(studentDto, student);
         studentService.save(student);
-        return new ResponseEntity<>(student,HttpStatus.OK);
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
+
     @PatchMapping("/{id}")
-    public ResponseEntity<Student> updateStudent(@PathVariable int id,@RequestBody StudentDto studentDto){
+    public ResponseEntity<Student> updateStudent(@PathVariable int id, @RequestBody StudentDto studentDto) {
         Student currentStudent = studentService.findById(id);
-        if(currentStudent==null){
-            return new  ResponseEntity<>(HttpStatus.NOT_FOUND);
+        if (currentStudent == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 //        currentStudent.setName(studentDto.getName());
 //        currentStudent.setGender(studentDto.getGender());
         studentDto.setId(id);
-        BeanUtils.copyProperties(studentDto,currentStudent);
+        BeanUtils.copyProperties(studentDto, currentStudent);
         studentService.save(currentStudent);
-        return new ResponseEntity<>(currentStudent,HttpStatus.OK);
+        return new ResponseEntity<>(currentStudent, HttpStatus.OK);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Student>> searchByName(@RequestParam String name) {
+        List<Student> searchStudent = studentService.findByName(name);
+        if(searchStudent==null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(searchStudent,HttpStatus.OK);
     }
 }

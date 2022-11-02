@@ -19,6 +19,11 @@ public class AppBlog {
     @JsonIgnore
     @JoinColumn(name = "categrory_id", referencedColumnName = "id")
     private Category category;
+    @ManyToMany
+    @JsonBackReference
+    @JsonIgnore
+    @JoinTable(name = "blog_admin", joinColumns = @JoinColumn(name = "app_blog_id"), inverseJoinColumns = @JoinColumn(name = "admin_id"))
+    private Set<Admin> adminList;
 
     public AppBlog() {
     }
@@ -69,5 +74,14 @@ public class AppBlog {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public Set<Admin> getAdminList() {
+        return adminList;
+    }
+
+    public void setAdminList(Set<Admin> adminList) {
+        this.adminList = adminList;
+    }
+
 
 }
