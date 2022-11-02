@@ -11,4 +11,5 @@ public interface IStudentRepository extends JpaRepository<Student, Integer> {
 
 
     List<Student> findByNameContains(String name);
+
 }
