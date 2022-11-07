@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.model.Customer;
 import com.example.demo.model.CustomerType;
 
 import java.util.List;

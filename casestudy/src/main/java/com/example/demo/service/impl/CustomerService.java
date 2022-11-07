@@ -19,4 +19,14 @@ public class CustomerService implements ICustomerService {
     public Page<Customer> showList(String name, String email,String nameType, Pageable pageable) {
         return iCustomerRepository.findByName("%"+name+"%","%"+email+"%","%"+nameType+"%",pageable);
     }
+
+    @Override
+    public void save(Customer customer) {
+        iCustomerRepository.save(customer);
+    }
+
+    @Override
+    public Customer findById(int id) {
+        return iCustomerRepository.findById(id).get();
+    }
 }

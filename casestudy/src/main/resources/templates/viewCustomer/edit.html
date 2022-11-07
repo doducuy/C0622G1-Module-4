@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Form Edit</h2>
+<form th:action="@{/customer/saveEdit}" th:object="${customer}" th:method="post">
+    <input type="hidden" th:field="*{id}">
+    <pre>Name:          <input type="text" th:field="*{name}" th:text="${name}"></pre>
+    <pre>Date Of Birth: <input type="text" th:field="*{dateOfBirth}" th:text="${dateOfBirth}"></pre>
+    <pre>Gender:        <select th:field="*{gender}">
+                            <option th:text="Nam" th:value="1"></option>
+                            <option th:text="Nữ" th:value="0"></option>
+    </select></pre>
+    <pre>Id Card:       <input type="text" th:field="*{idCard}" th:text="${idCard}"></pre>
+    <pre>Phone Number:  <input type="text" th:field="*{phoneNumber}" th:text="${phoneNumber}"></pre>
+    <pre>Email:         <input type="text" th:field="*{email}" th:text="${email}"></pre>
+    <pre>Address:       <input type="text" th:field="*{address}" th:text="${address}"></pre>
+    <pre>Customer Type: <select th:field="*{customerType}">
+                            <option th:each="item:${customerTypeList}" th:text="${item.name}"
+                                    th:value="${item.id}">
+                            </option>
+                        </select>
+    </pre>
+    <input type="submit" value="Save!">
+</form>
+
+</body>
+</html>

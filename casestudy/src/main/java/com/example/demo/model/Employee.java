@@ -128,4 +128,12 @@ public class Employee {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
+    }
 }

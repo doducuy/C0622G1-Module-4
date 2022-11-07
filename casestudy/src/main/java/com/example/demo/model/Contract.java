@@ -57,4 +57,36 @@ public class Contract {
     public void setDeposit(double deposit) {
         this.deposit = deposit;
     }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Facility getFacility() {
+        return facility;
+    }
+
+    public void setFacility(Facility facility) {
+        this.facility = facility;
+    }
+
+    public Set<ContractDetail> getContractDetails() {
+        return contractDetails;
+    }
+
+    public void setContractDetails(Set<ContractDetail> contractDetails) {
+        this.contractDetails = contractDetails;
+    }
 }

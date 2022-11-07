@@ -108,4 +108,28 @@ public class Facility {
     public void setFacilityFree(String facilityFree) {
         this.facilityFree = facilityFree;
     }
+
+    public FacilityType getFacilityType() {
+        return facilityType;
+    }
+
+    public void setFacilityType(FacilityType facilityType) {
+        this.facilityType = facilityType;
+    }
+
+    public RentType getRentType() {
+        return rentType;
+    }
+
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
+    }
+
+    public Set<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(Set<Contract> contracts) {
+        this.contracts = contracts;
+    }
 }

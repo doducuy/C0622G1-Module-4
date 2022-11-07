@@ -30,4 +30,12 @@ public class RentType {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Set<Facility> getFacilities() {
+        return facilities;
+    }
+
+    public void setFacilities(Set<Facility> facilities) {
+        this.facilities = facilities;
+    }
 }

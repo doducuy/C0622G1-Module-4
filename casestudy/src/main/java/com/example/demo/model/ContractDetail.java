@@ -33,4 +33,20 @@ public class ContractDetail {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public Contract getContract() {
+        return contract;
+    }
+
+    public void setContract(Contract contract) {
+        this.contract = contract;
+    }
+
+    public AttachFacility getAttachFacility() {
+        return attachFacility;
+    }
+
+    public void setAttachFacility(AttachFacility attachFacility) {
+        this.attachFacility = attachFacility;
+    }
 }

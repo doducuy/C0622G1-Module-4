@@ -57,4 +57,12 @@ public class AttachFacility {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public Set<ContractDetail> getContractDetails() {
+        return contractDetails;
+    }
+
+    public void setContractDetails(Set<ContractDetail> contractDetails) {
+        this.contractDetails = contractDetails;
+    }
 }

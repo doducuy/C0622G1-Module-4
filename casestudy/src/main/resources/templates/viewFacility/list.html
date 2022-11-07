@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Customer List</title>
+</head>
+<body>
+<h3 style="color: #ffc107; text-align: center">FACILITY LIST OF FURAMA RESORT</h3>
+<form th:href="@{/facility/list}">
+    <input type="text" placeholder="Name" th:name="name" th:value="${name}">
+    <select style="width: 20%" th:name="nameType">
+        <option th:if="${nameType!=''}" th:text="${nameType}"></option>
+        <option value="">All</option>
+        <option th:each="item : ${facilityTypeList}" th:text="${item.name}" th:value="${item.name}"></option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+<a href="/facility/create">Add New Facility</a>
+<pre th:text="${mess}" ></pre>
+<p th:if="${facilityList.isEmpty()}" style="color:red">List Empty</p>
+<table border="1px">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Area</th>
+        <th>Cost</th>
+        <th>Max People</th>
+        <th>Facility Type</th>
+        <th>Rent Type</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="facility, facilityTus: ${facilityList}">
+        <td th:text="${facility.getName()}"></td>
+        <td th:text="${facility.getArea()}"></td>
+        <td th:text="${facility.getCost()}"></td>
+        <td th:text="${facility.getMaxPeople()}"></td>
+        <td th:text="${facility.facilityType.name}"></td>
+        <td th:text="${facility.rentType.name}"></td>
+        <td>Xóa</td>
+        <td><a th:href="@{/facility/edit/{id}(id=${facility.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:if="${facilityList.hasPrevious()}" th:href="@{'/facility/list'(page=${facilityList.number - 1})}">Previous</a>
+    <span th:text = "${facilityList.number + 1}"></span>/<span th:text = "${facilityList.totalPages}"></span>
+    <a th:if="${facilityList.hasNext()}" th:href="@{'/facility/list'(page=${facilityList.number + 1})}">Next</a>
+</div>
+<div>
+    <a href="/home">Back Home!!!</a>
+</div>
+</body>
+</html>
