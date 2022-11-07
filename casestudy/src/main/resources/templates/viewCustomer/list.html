@@ -7,6 +7,17 @@
 </head>
 <body>
 <h3 style="color: #ffc107; text-align: center">CUSTOMER LIST OF FURAMA RESORT</h3>
+<form th:href="@{/customer/list}">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="email" name="email">
+<!--    <input type="text" placeholder="type" name="nameType">-->
+    <select style="width: 20%" th:name="nameType">
+        <option value=""  selected>Choose Something</option>
+        <option th:each="item : ${customerTypeList}" th:value="${item.name}" th:text="${item.name}"></option>
+    </select>
+    <input type="submit" value="Search">
+
+</form>
 <a href="/addCustomer">Add New Customer</a>
 <p th:if="${customerList.isEmpty()}" style="color:red">List Empty</p>
 <table border="1px">
