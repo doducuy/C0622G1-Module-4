@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="/layout::head">
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 <h2>Form Edit</h2>
+<div id="form">
 <form th:action="@{/customer/saveEdit}" th:object="${customer}" th:method="post">
     <input type="hidden" th:field="*{id}">
-    <pre>Name:          <input type="text" th:field="*{name}" th:text="${name}"></pre>
-    <pre>Date Of Birth: <input type="text" th:field="*{dateOfBirth}" th:text="${dateOfBirth}"></pre>
-    <pre>Gender:        <select th:field="*{gender}">
-                            <option th:text="Nam" th:value="1"></option>
-                            <option th:text="Nữ" th:value="0"></option>
-    </select></pre>
-    <pre>Id Card:       <input type="text" th:field="*{idCard}" th:text="${idCard}"></pre>
-    <pre>Phone Number:  <input type="text" th:field="*{phoneNumber}" th:text="${phoneNumber}"></pre>
-    <pre>Email:         <input type="text" th:field="*{email}" th:text="${email}"></pre>
-    <pre>Address:       <input type="text" th:field="*{address}" th:text="${address}"></pre>
-    <pre>Customer Type: <select th:field="*{customerType}">
-                            <option th:each="item:${customerTypeList}" th:text="${item.name}"
-                                    th:value="${item.id}">
-                            </option>
-                        </select>
-    </pre>
+    <pre>Name:</pre>
+    <input type="text" th:field="*{name}" th:text="${name}">
+    <pre>Date Of Birth: </pre>
+    <input type="text" th:field="*{dateOfBirth}" th:text="${dateOfBirth}">
+    <pre>Gender:</pre>
+    <select th:field="*{gender}">
+        <option th:text="Nam" th:value="1"></option>
+        <option th:text="Nữ" th:value="0"></option>
+    </select>
+    <pre>Id Card:</pre>
+    <input type="text" th:field="*{idCard}" th:text="${idCard}">
+    <pre>Phone Number:</pre>
+    <input type="text" th:field="*{phoneNumber}" th:text="${phoneNumber}">
+    <pre>Email:</pre>
+    <input type="text" th:field="*{email}" th:text="${email}">
+    <pre>Address:</pre>
+    <input type="text" th:field="*{address}" th:text="${address}">
+    <pre>Customer Type:</pre>
+    <select th:field="*{customerType}">
+        <option th:each="item:${customerTypeList}" th:text="${item.name}"
+                th:value="${item.id}">
+        </option>
+    </select>
     <input type="submit" value="Save!">
 </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+</script>
 </body>
 </html>
