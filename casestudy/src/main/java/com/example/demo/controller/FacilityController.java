@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Customer;
 import com.example.demo.model.Facility;
 import com.example.demo.service.IFacilityService;
 import com.example.demo.service.IFacilityTypeService;
@@ -49,6 +50,21 @@ public class FacilityController {
     public String delete(@RequestParam(value = "delete") int id, RedirectAttributes redirectAttributes){
         iFacilityService.deleteById(id);
         redirectAttributes.addFlashAttribute("messDelete","Delete Success!!!");
+        return "redirect:/facility/list";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String formEdit(@PathVariable int id, Model model) {
+        Facility facility = iFacilityService.findById(id);
+        model.addAttribute("facility", facility);
+        model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
+        model.addAttribute("rentTypeList",iRentTypeService.findAll());
+        return "/viewFacility/edit";
+    }
+    @PostMapping("/saveEdit")
+    public String saveEdit(@ModelAttribute(value = "facility") Facility facility,RedirectAttributes redirectAttributes) {
+        iFacilityService.save(facility);
+        redirectAttributes.addFlashAttribute("mess", "Edit Facility Success!!!");
         return "redirect:/facility/list";
     }
 }

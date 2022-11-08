@@ -8,4 +8,5 @@ public interface IFacilityService {
     Page<Facility> showList(String name, String nameType, Pageable pageable);
     void save(Facility facility);
     void deleteById(int id);
+    Facility findById(int id);
 }
