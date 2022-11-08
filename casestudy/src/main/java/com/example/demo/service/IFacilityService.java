@@ -7,4 +7,5 @@ import org.springframework.data.domain.Pageable;
 public interface IFacilityService {
     Page<Facility> showList(String name, String nameType, Pageable pageable);
     void save(Facility facility);
+    void deleteById(int id);
 }

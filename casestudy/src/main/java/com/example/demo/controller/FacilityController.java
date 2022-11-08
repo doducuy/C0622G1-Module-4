@@ -45,4 +45,10 @@ public class FacilityController {
         redirectAttributes.addFlashAttribute("mess","Create New Facility Success!!!");
         return  "redirect:/facility/create";
     }
+    @GetMapping("/delete")
+    public String delete(@RequestParam(value = "delete") int id, RedirectAttributes redirectAttributes){
+        iFacilityService.deleteById(id);
+        redirectAttributes.addFlashAttribute("messDelete","Delete Success!!!");
+        return "redirect:/facility/list";
+    }
 }

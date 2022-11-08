@@ -61,4 +61,10 @@ public class CustomerController {
         redirectAttributes.addFlashAttribute("mess", "Edit Customer Success!!!");
         return "redirect:/customer/list";
     }
+    @GetMapping("/delete")
+    public String delete(@RequestParam(value = "delete") int id, RedirectAttributes redirectAttributes){
+        icustomerService.deleteById(id);
+        redirectAttributes.addFlashAttribute("messDelete","Delete Success!!!");
+        return "redirect:/customer/list";
+    }
 }

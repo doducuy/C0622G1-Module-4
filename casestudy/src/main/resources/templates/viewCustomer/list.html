@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <title>Customer List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 <h3 style="color: #ffc107; text-align: center">CUSTOMER LIST OF FURAMA RESORT</h3>
 <form th:href="@{/customer/list}">
-    <input type="text" placeholder="name" name="name"  th:value="${name}">
-    <input type="text" placeholder="email" name="email" th:value="${email}">
+    <input type="text" placeholder="Name" name="name" th:value="${name}">
+    <input type="text" placeholder="Email" name="email" th:value="${email}">
     <select style="width: 20%" th:name="nameType">
         <option th:if="${nameType!=''}" th:text="${nameType}"></option>
         <option value="">All</option>
@@ -19,8 +21,9 @@
 </form>
 <a href="/customer/create">Add New Customer</a>
 <p style="color: red" th:text="${mess}"></p>
+<p style="color: red" th:text="${messDelete}"></p>
 <p th:if="${customerList.isEmpty()}" style="color:red">List Empty</p>
-<table border="1px">
+<table class="table table-striped" border="1">
     <thead>
     <tr>
         <th>Name</th>
@@ -46,18 +49,59 @@
         <td th:text="${customer.getEmail()}"></td>
         <td th:text="${customer.getAddress()}"></td>
         <td th:text="${customer.customerType.name}"></td>
-        <td><a th:href="@{/customer/{id}/delete(id=${customer.id})}">Xóa</a></td>
+        <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#deleteModal" th:attr="onclick=|infoDelete('${customer.id}', '${customer.name}')|">
+                Delete
+            </button>
+        </td>
         <td><a th:href="@{/customer/{id}/edit(id=${customer.id})}">Edit</a></td>
     </tr>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Are you sure you want to delete <span style="color: red" id="nameDelete"></span>?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <form action="/customer/delete">
+                        <input type="text" name="delete" id="id" hidden>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
     </tbody>
 </table>
 <div>
-    <a th:if="${customerList.hasPrevious()}" th:href="@{'/customer/list'(page=${customerList.number - 1})}">Previous</a>
-    <span th:text = "${customerList.number + 1}"></span>/<span th:text = "${customerList.totalPages}"></span>
-    <a th:if="${customerList.hasNext()}" th:href="@{'/customer/list'(page=${customerList.number + 1})}">Next</a>
+    <a th:if="${customerList.hasPrevious()}"
+       th:href="@{'/customer/list'(page=${customerList.number - 1},name=${name},email=${email},nameType=${nameType})}">Previous</a>
+    <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
+    <a th:if="${customerList.hasNext()}"
+       th:href="@{'/customer/list'(page=${customerList.number + 1},name=${name},email=${email},nameType=${nameType})}">Next</a>
 </div>
 <div>
     <a href="/home">Back Home!!!</a>
 </div>
+<script>
+    function infoDelete(id, name) {
+        document.getElementById("nameDelete").innerText = name;
+        document.getElementById("id").value = id;
+    }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+</script>
 </body>
 </html>

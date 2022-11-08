@@ -10,4 +10,5 @@ public interface ICustomerService {
     Page<Customer> showList(String name,String email,String nameType,Pageable pageable);
     void save(Customer customer);
     Customer findById(int id);
+    void deleteById(int id);
 }
