@@ -51,4 +51,9 @@ public class ContractController {
         model.addAttribute("contractList",iContractService.showList(pageable));
         return "/viewContract/list";
     }
+    @GetMapping("/useFacility")
+    public String customerUseFacilityList(@PageableDefault(value = 3) Pageable pageable, Model model){
+        model.addAttribute("contractList",iContractService.findByCustomer(pageable));
+        return "viewCustomer/customerUseFacility";
+    }
 }

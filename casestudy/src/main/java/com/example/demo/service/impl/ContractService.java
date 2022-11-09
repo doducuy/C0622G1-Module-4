@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.Contract;
+import com.example.demo.model.Customer;
 import com.example.demo.repository.IContractRepository;
 import com.example.demo.service.IContractService;
 import com.example.demo.service.ICustomerService;
@@ -23,6 +24,11 @@ public class ContractService implements IContractService {
     @Override
     public Page<Contract> showList(Pageable pageable) {
         return iContractRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Contract> findByCustomer(Pageable pageable) {
+        return iContractRepository.findByCustomer(pageable);
     }
 
 
