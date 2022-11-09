@@ -10,7 +10,7 @@
 <h2>Form Create Facility</h2>
 <p style="color: red" th:text="${mess}"></p>
 <div id="form">
-<form th:action="@{/facility/save}" th:object="${facility}" th:method="post">
+<form th:action="@{/facility/save/villa}" th:object="${facility}" th:method="post">
     <span>Name:</span>
     <input type="text" th:field="*{name}">
     <span>Area:</span>
@@ -21,23 +21,20 @@
     <input type="text"  th:field="*{maxPeople}">
     <span>Standard Room:</span>
     <input type="text"  th:field="*{standardRoom}">
-    <span>Standard Room:</span>
-    <input type="text"  th:field="*{standardRoom}">
     <span>Description Other Convenience:</span>
     <input type="text"  th:field="*{descriptionOtherConvenience}">
     <span>Pool Area:</span>
     <input type="text"  th:field="*{poolArea}">
     <span>Number Of Floors:</span>
     <input type="text"  th:field="*{numberOfFloors}">
-    <span>Facility Free:</span>
-    <input type="text"  th:field="*{facilityFree}">
+    <input type="hidden"  th:field="*{facilityFree}">
     <span>Rent Type:</span>
     <select type="text"  th:field="*{rentType}">
         <option th:each="item:${rentTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
     </select>
     <span>Facility Type:</span>
     <select th:field="*{facilityType}">
-        <option th:each="item:${facilityTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
+        <option th:value="1" th:text="Villa"></option>
     </select>
     <input type="submit" value="Save!">
 </form>

@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.model.Customer;
 import com.example.demo.service.ICustomerService;
 import com.example.demo.service.ICustomerTypeService;
-import com.example.demo.service.impl.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -37,7 +36,7 @@ public class CustomerController {
     public String formCreate(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("customerTypeList", iCustomerTypeService.findAll());
-        return "/viewCustomer/create";
+        return "createVilla";
     }
 
     @PostMapping("/save")

@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Customer;
 import com.example.demo.model.Facility;
 import com.example.demo.service.IFacilityService;
 import com.example.demo.service.IFacilityTypeService;
@@ -31,20 +30,46 @@ public class FacilityController {
         model.addAttribute("nameType",nameType);
         model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
         model.addAttribute("facilityList", iFacilityService.showList(name, nameType, pageable));
-        return "viewFacility/list";
+        return "Facility/list";
     }
-    @GetMapping("/create")
-    public String formCreate(Model model){
+    @GetMapping("/create/villa")
+    public String formCreateVilla(Model model){
         model.addAttribute("facility",new Facility());
         model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
         model.addAttribute("rentTypeList",iRentTypeService.findAll());
-        return "viewFacility/create";
+        return "Facility/createVilla";
     }
-    @PostMapping("/save")
+    @GetMapping("/create/room")
+    public String formCreateRoom(Model model){
+        model.addAttribute("facility",new Facility());
+        model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
+        model.addAttribute("rentTypeList",iRentTypeService.findAll());
+        return "Facility/createRoom";
+    }
+    @GetMapping("/create/house")
+    public String formCreateHouse(Model model){
+        model.addAttribute("facility",new Facility());
+        model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
+        model.addAttribute("rentTypeList",iRentTypeService.findAll());
+        return "Facility/createHouse";
+    }
+    @PostMapping("/save/villa")
     public String save(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes){
         iFacilityService.save(facility);
         redirectAttributes.addFlashAttribute("mess","Create New Facility Success!!!");
-        return  "redirect:/facility/create";
+        return  "redirect:/facility/create/villa";
+    }
+    @PostMapping("/save/House")
+    public String saveHouse(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes){
+        iFacilityService.save(facility);
+        redirectAttributes.addFlashAttribute("mess","Create New Facility Success!!!");
+        return  "redirect:/facility/create/house";
+    }
+    @PostMapping("/save/room")
+    public String saveRoom(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes){
+        iFacilityService.save(facility);
+        redirectAttributes.addFlashAttribute("mess","Create New Facility Success!!!");
+        return  "redirect:/facility/create/room";
     }
     @GetMapping("/delete")
     public String delete(@RequestParam(value = "delete") int id, RedirectAttributes redirectAttributes){
@@ -56,10 +81,10 @@ public class FacilityController {
     @GetMapping("/edit/{id}")
     public String formEdit(@PathVariable int id, Model model) {
         Facility facility = iFacilityService.findById(id);
-        model.addAttribute("facility", facility);
-        model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
-        model.addAttribute("rentTypeList",iRentTypeService.findAll());
-        return "/viewFacility/edit";
+            model.addAttribute("facility", facility);
+            model.addAttribute("facilityTypeList", iFacilityTypeService.findAll());
+            model.addAttribute("rentTypeList", iRentTypeService.findAll());
+            return "Facility/edit";
     }
     @PostMapping("/saveEdit")
     public String saveEdit(@ModelAttribute(value = "facility") Facility facility,RedirectAttributes redirectAttributes) {
