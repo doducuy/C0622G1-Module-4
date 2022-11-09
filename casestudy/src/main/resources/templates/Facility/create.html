@@ -7,37 +7,77 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <h2>Form Create Facility</h2>
 <p style="color: red" th:text="${mess}"></p>
 <div id="form">
-    <form th:action="@{/facility/save/house}" th:object="${facility}" th:method="post">
+    <form th:action="@{/facility/save}" th:object="${facility}" th:method="post">
+        <span>Facility Type:</span>
+        <select id="facilityType" th:field="*{facilityType}">
+            <option th:value="0">---Choose One---</option>
+            <option th:each="item:${facilityTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
+        </select>
+
         <span>Name:</span>
         <input type="text" th:field="*{name}">
+
         <span>Area:</span>
         <input type="text"  th:field="*{area}">
+
         <span>Cost:</span>
         <input type="text"  th:field="*{cost}">
+
         <span>Max People:</span>
         <input type="text"  th:field="*{maxPeople}">
+
         <span>Standard Room:</span>
         <input type="text"  th:field="*{standardRoom}">
+
         <span>Description Other Convenience:</span>
         <input type="text"  th:field="*{descriptionOtherConvenience}">
-        <input type="hidden"  th:field="*{poolArea}">
-        <span>Number Of Floors:</span>
-        <input type="text"  th:field="*{numberOfFloors}">
-        <input type="hidden"  th:field="*{facilityFree}">
+
+        <div id="poolArea">
+            <span>Pool Area:</span>
+            <input type="text"  th:field="*{poolArea}">
+        </div>
+
+        <div id="numberOfFloor">
+            <span>Number Of Floors:</span>
+            <input type="text"  th:field="*{numberOfFloors}">
+        </div>
+
+        <div id="facilityFree">
+            <span>Facility Free:</span>
+            <input type="text"  th:field="*{facilityFree}">
+        </div>
+
         <span>Rent Type:</span>
         <select type="text"  th:field="*{rentType}">
             <option th:each="item:${rentTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
         </select>
-        <span>Facility Type:</span>
-        <select th:field="*{facilityType}">
-            <option th:value="2" th:text="House"></option>
-        </select>
+
         <input type="submit" value="Save!">
     </form>
 </div>
+    <script>
+        $('#facilityType').change(function () {
+            if ($(this).val()==='1'){
+                $('#facilityFree').hide();
+                $('#numberOfFloor').show();
+                $('#poolArea').show();
+            }
+            if($(this).val()==='2'){
+                $('#poolArea').hide();
+                $('#facilityFree').hide();
+            }
+            if($(this).val()==='3'){
+                $('#poolArea').hide();
+                $('#numberOfFloor').hide();
+                $('#facilityFree').show();
+            }
+        })
+    </script>
 <a href="/facility/list">Back Facility List</a>
 
 
@@ -45,5 +85,6 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous">
 </script>
+
 </body>
 </html>

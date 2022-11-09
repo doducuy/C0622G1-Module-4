@@ -37,7 +37,7 @@ public class CustomerController {
     public String formCreate(Model model) {
         model.addAttribute("customer", new Customer());
         model.addAttribute("customerTypeList", iCustomerTypeService.findAll());
-        return "createVilla";
+        return "viewCustomer/create";
     }
 
     @PostMapping("/save")
