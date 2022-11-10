@@ -21,15 +21,22 @@
 
         <span>Name:</span>
         <input type="text" th:field="*{name}">
+        <pre style="color: red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></pre>
 
         <span>Area:</span>
         <input type="text"  th:field="*{area}">
+        <pre style="color: red" th:errors="*{area}" th:if="${#fields.hasErrors('area')}"></pre>
+
 
         <span>Cost:</span>
         <input type="text"  th:field="*{cost}">
+        <pre style="color: red" th:errors="*{cost}" th:if="${#fields.hasErrors('cost')}"></pre>
+
 
         <span>Max People:</span>
         <input type="text"  th:field="*{maxPeople}">
+        <pre style="color: red" th:errors="*{maxPeople}" th:if="${#fields.hasErrors('maxPeople')}"></pre>
+
 
         <span>Standard Room:</span>
         <input type="text"  th:field="*{standardRoom}">
@@ -45,17 +52,23 @@
         <div id="numberOfFloor">
             <span>Number Of Floors:</span>
             <input type="text"  th:field="*{numberOfFloors}">
+            <pre style="color: red" th:errors="*{numberOfFloors}" th:if="${#fields.hasErrors('numberOfFloors')}"></pre>
+
         </div>
 
         <div id="facilityFree">
             <span>Facility Free:</span>
             <input type="text"  th:field="*{facilityFree}">
+            <pre style="color: red" th:errors="*{facilityFree}" th:if="${#fields.hasErrors('facilityFree')}"></pre>
+
         </div>
 
         <span>Rent Type:</span>
         <select type="text"  th:field="*{rentType}">
             <option th:each="item:${rentTypeList}" th:value="${item.id}" th:text="${item.name}"></option>
         </select>
+        <pre style="color: red" th:errors="*{rentType}" th:if="${#fields.hasErrors('rentType')}"></pre>
+
 
         <input type="submit" value="Save!">
     </form>

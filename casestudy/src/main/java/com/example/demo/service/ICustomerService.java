@@ -12,4 +12,5 @@ public interface ICustomerService {
     Customer findById(int id);
     void deleteById(int id);
     List<Customer> findAll();
+//    List<String> findByEmail();
 }

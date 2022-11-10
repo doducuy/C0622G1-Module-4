@@ -1,16 +1,21 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Facility;
+import com.example.demo.model.FacilityDTO;
 import com.example.demo.service.IFacilityService;
 import com.example.demo.service.IFacilityTypeService;
 import com.example.demo.service.IRentTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/facility")
@@ -54,16 +59,26 @@ public class FacilityController {
     }
     @GetMapping("/create")
     public String formCreate(Model model){
-        model.addAttribute("facility",new Facility());
+        model.addAttribute("facility",new FacilityDTO());
         model.addAttribute("facilityTypeList",iFacilityTypeService.findAll());
         model.addAttribute("rentTypeList",iRentTypeService.findAll());
         return "Facility/create";
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute(value = "facility") Facility facility,RedirectAttributes redirectAttributes){
-        iFacilityService.save(facility);
-        redirectAttributes.addFlashAttribute("mess","Add Success");
-        return "redirect:/facility/create";
+    public String save(@Valid @ModelAttribute(value = "facility") FacilityDTO facilityDTO, BindingResult bindingResult,RedirectAttributes redirectAttributes,Model model){
+        model.addAttribute("rentTypeList",iRentTypeService.findAll());
+        model.addAttribute("facilityTypeList",iFacilityTypeService.findAll());
+        facilityDTO.validate(facilityDTO,bindingResult);
+        if(bindingResult.hasErrors()){
+            return "Facility/create";
+        }
+        else {
+            Facility facility =new Facility();
+            BeanUtils.copyProperties(facilityDTO,facility);
+            iFacilityService.save(facility);
+            redirectAttributes.addFlashAttribute("mess","Add Success");
+            return "redirect:/facility/create";
+        }
     }
 }

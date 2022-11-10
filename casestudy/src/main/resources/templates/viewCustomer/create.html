@@ -11,29 +11,44 @@
 <p style="color: red" th:text="${mess}"></p>
 <div id="form">
     <form th:action="@{/customer/save}" th:object="${customer}" th:method="post">
+
         <span>Name:</span>
         <input type="text" th:field="*{name}" th:text="${name}">
+        <pre style="color: red" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></pre>
+
         <span>Date Of Birth:</span>
-        <input type="text" th:field="*{dateOfBirth}" th:text="${dateOfBirth}">
+        <input type="date" th:field="*{dateOfBirth}" th:text="${dateOfBirth}">
+        <pre style="color: red" th:errors="*{dateOfBirth}" th:if="${#fields.hasErrors('dateOfBirth')}"></pre>
+
         <span>Gender:</span>
         <select th:field="*{gender}">
             <option th:text="Nam" th:value="1"></option>
             <option th:text="Nữ" th:value="0"></option>
         </select>
+
         <span>Id Card:</span>
         <input type="text" th:field="*{idCard}" th:text="${idCard}">
+        <pre style="color: red" th:errors="*{idCard}" th:if="${#fields.hasErrors('idCard')}"></pre>
+
         <span>Phone Number:</span>
         <input type="text" th:field="*{phoneNumber}" th:text="${phoneNumber}">
+        <pre style="color: red" th:errors="*{phoneNumber}" th:if="${#fields.hasErrors('phoneNumber')}"></pre>
+
         <span>Email:</span>
         <input type="text" th:field="*{email}" th:text="${email}">
+        <pre style="color: red" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></pre>
+
         <span>Address:</span>
         <input type="text" th:field="*{address}" th:text="${address}">
+        <pre style="color: red" th:errors="*{address}" th:if="${#fields.hasErrors('address')}"></pre>
+
         <span>Customer Type:</span>
         <select th:field="*{customerType}">
-            <option th:each="item:${customerTypeList}" th:text="${item.name}"
-                    th:value="${item.id}"></option>
+            <option th:each="item:${customerTypeList}" th:text="${item.name}" th:value="${item.id}"></option>
         </select>
+
         <input type="submit" value="Save!">
+
     </form>
     <a href="/customer/list">Back List Customer</a>
 </div>

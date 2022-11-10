@@ -12,6 +12,9 @@ import java.util.List;
 
 @Service
 public class CustomerService implements ICustomerService {
+    public CustomerService() {
+    }
+
     @Autowired
     ICustomerRepository iCustomerRepository;
 
